@@ -45,7 +45,7 @@ export default function RequestAQuote() {
       <Container width="100%" flex="column" margin="0 0 1rem 0">
         <label>New Appartment Type</label>
         <select>
-          <option>--select--</option>
+          <option></option>
           <option>Flat</option>
           <option>Duplex</option>
           <option>Office</option>
@@ -55,7 +55,7 @@ export default function RequestAQuote() {
       <Container width="100%" flex="column" margin="0 0 1rem 0">
         <label>What do we assist you with?</label>
         <select>
-          <option>Select</option>
+          <option></option>
           <option>Full Moving Service</option>
           <option>Truck</option>
           <option>Packing and unpacking</option>
