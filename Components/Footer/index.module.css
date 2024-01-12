@@ -1,0 +1,19 @@
+.input{
+    width:80%;
+    height: 2rem;
+    font-family: inherit;
+    border: none;
+    border-radius: 2px;
+    margin-right: 1rem;
+}
+
+.social{
+    margin:0.5rem
+}
+
+@media screen and (min-width: 800px) {
+    .input{
+        width: 50%;
+      
+    }
+}
