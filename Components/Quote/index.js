@@ -35,7 +35,7 @@ export default function RequestAQuote() {
       <Container width="100%" flex="column" margin="0 0 1rem 0">
         <label>Current Appartment Type</label>
         <select>
-          <option>--select---</option>
+          <option></option>
           <option>Flat</option>
           <option>Duplex</option>
           <option>Office</option>
