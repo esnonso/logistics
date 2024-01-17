@@ -180,7 +180,7 @@ export default function RequestAQuote() {
       </Container>
 
       <Container width="100%" flex="column" margin="0 0 1rem 0">
-        <label>What do we assist you with? *</label>
+        <label>What do We Assist You With? *</label>
         <select
           value={service}
           onChange={inputChangeHandler(setService)}
