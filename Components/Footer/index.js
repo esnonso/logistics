@@ -18,7 +18,9 @@ export default function Footer() {
       justify="center"
     >
       <Container width="100%" margin="0 0 1rem 0" justify="center">
-        <H1Tags color="burlywood">CountryMovers</H1Tags>
+        <H1Tags color="burlywood">
+          Country<span style={{ color: "white" }}>Movers</span>
+        </H1Tags>
       </Container>
       <Container>
         <Image

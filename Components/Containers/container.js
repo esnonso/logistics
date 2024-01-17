@@ -20,7 +20,7 @@ const Container = (props) => {
     opacity: props.opacity,
     borderRadius: props.radius,
     minHeight: props.minHeight,
-    borderBottom: props.borderBottom,
+    // borderBottom: props.borderBottom,
     flexWrap: props.wrap,
   };
 

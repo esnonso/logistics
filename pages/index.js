@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>CountryMovers Home</title>
         <meta
           name="moving and delivery company in Lagos, Nigeria"
           content="moving services, delivery services"

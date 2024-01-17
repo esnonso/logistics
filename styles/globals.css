@@ -5,10 +5,15 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: rgb(252, 240, 225);
+  color: rgb(46, 23, 23);
 }
 
 button:hover{
   cursor: pointer;
+}
+
+label{
+  margin-bottom: 0.5rem;
 }
 
 form {
@@ -19,6 +24,29 @@ form {
   align-items: center;
   padding: 1rem;
   box-sizing: border-box;
+  min-height: 70vh;
+}
+
+.form-div {
+  width: 100%;
+  margin: 6rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: 70vh;
+}
+
+.modal-form {
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: fit-content;
 }
 
 input, select, textarea{
@@ -27,15 +55,60 @@ input, select, textarea{
   border: 1px #ccc solid;
   background-color: rgb(252, 240, 225);
   border-radius: 5px;
+  color: inherit;
 }
+
 
 textarea{
   height: 5rem;
+  resize: none;
+}
+
+.btn-submit{
+  background-color: burlywood;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px rgb(46, 23, 23) solid;
+  font:inherit;
+}
+
+.btn-submit:disabled{
+  background-color: gray;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.paystack-button {
+  cursor: pointer;
+  text-align: center;
+  font:inherit;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  background-color: burlywood;
+  font-weight: bold;
+  color: rgb(46, 23, 23);
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 45px;
+  margin-top: 40px;
 }
 
 @media screen and (min-width:800px) {
     form{
       width:50%;
+      margin: 6rem auto 0 auto;
+    }
+
+    .form-div {
+      width: 50%;
       margin: 6rem auto 0 auto;
     }
 }

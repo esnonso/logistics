@@ -3,6 +3,7 @@ import Button from "../Button";
 import Container from "../Containers/container";
 import { H1Tags, PTags } from "../Text";
 import classes from "./index.module.css";
+import Link from "next/link";
 
 export default function Homepage() {
   const router = useRouter();
@@ -17,16 +18,9 @@ export default function Homepage() {
             6 Tiamiyu Street, Fadeyi. Lagos
           </PTags>
 
-          <Button
-            text="Request a quote"
-            back="#68432C"
-            color="white"
-            width="fit-content"
-            height={"3rem"}
-            borderRadius={"5px"}
-            font="20px"
-            padding={"0.5rem 3rem"}
-          />
+          <Link href="#our-services" className={classes["home-link"]}>
+            Request a quote
+          </Link>
         </Container>
       </div>
 
@@ -40,7 +34,15 @@ export default function Homepage() {
       </div>
 
       {/* MY SERVICES SECTION */}
-      <Container width="100%" margin="3rem 0 5rem 0" flex="column">
+      <div
+        style={{
+          width: "100%",
+          margin: "3rem 0 5rem 0",
+          display: "flex",
+          flexDirection: "column",
+        }}
+        id="our-services"
+      >
         <PTags
           textAlign="center"
           fontSize="25px"
@@ -93,7 +95,7 @@ export default function Homepage() {
             </Container>
           </div>
         </div>
-      </Container>
+      </div>
     </Container>
   );
 }

@@ -5,7 +5,7 @@ export default function PickupForm() {
   return (
     <>
       <Head>
-        <title>Quote</title>
+        <title>CountryMovers Courier Service</title>
         <meta
           name="moving and delivery company in Lagos, Nigeria"
           content="moving services, delivery services"

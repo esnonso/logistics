@@ -45,6 +45,16 @@
     box-sizing: border-box;   
 }
 
+.home-link{
+    background-color: #68432C;
+    width: fit-content;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 1rem 3rem;
+}
+
 .moving {
     background-image: url("../Media/moving.jpg");
 }
