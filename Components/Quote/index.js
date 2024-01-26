@@ -98,7 +98,6 @@ export default function RequestAQuote() {
       });
       setSuccess(true);
     } catch (error) {
-      console.log(error);
       setError("An error occured! Try again");
       setIsSubmitting(false);
     }

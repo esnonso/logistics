@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const options = {
-  secret: process.env.NEXT_AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
