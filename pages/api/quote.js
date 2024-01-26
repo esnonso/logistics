@@ -41,7 +41,6 @@ export default async function handler(req, res) {
 
     res.status(200).json("Request success, we will give you a call soon");
   } catch (error) {
-    console.log(error);
     res.status(500).json(error.message);
   }
 }
