@@ -3,7 +3,7 @@ import User from "@/Mongodb/Models/user";
 import { getServerSession } from "next-auth/next";
 import { options } from "./auth/[...nextauth]";
 
-export default async function GetUserStatus(req, res) {
+export default async function handler(req, res) {
   try {
     await connectDatabase();
     const session = await getServerSession(req, res, options);

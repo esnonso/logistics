@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema(
     confirmationCode: String,
 
     resetPassword: String,
+
+    shipments: [],
+
+    quotes: [],
   },
   { timestamps: true }
 );

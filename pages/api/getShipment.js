@@ -4,7 +4,7 @@ import Courier from "@/Mongodb/Models/courier";
 import { getServerSession } from "next-auth/next";
 import { options } from "./auth/[...nextauth]";
 
-export default async function GetShipment(req, res) {
+export default async function handler(req, res) {
   try {
     await connectDatabase();
     const session = await getServerSession(req, res, options);
@@ -12,13 +12,14 @@ export default async function GetShipment(req, res) {
     const { id } = req.body;
     const user = await User.findOne({ email: session.user.email });
     const shipment = await Courier.findById(id);
-    if (shipment.user.toString !== user._id.toString)
-      throw new Error("Unauthorized");
+    const userShipmentIndex = user.shipments.findIndex(
+      (s) => s.id.toString() === id
+    );
+    if (userShipmentIndex < 0) throw new Error("Unauthorized");
     return res
       .status(200)
       .json({ shipment: shipment, email: user.email, phone: user.phone });
   } catch (error) {
-    console.log(error);
     return res.status(500).json("An error occured");
   }
 }

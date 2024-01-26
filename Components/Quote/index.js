@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import Container from "../Containers/container";
+import { allState } from "../Objects/states";
 import { PTags } from "../Text";
 import Modal from "../Modal";
 import axios from "axios";
@@ -14,6 +15,12 @@ export default function RequestAQuote() {
   const [phone, setPhone] = useState("");
   const [movingFrom, setMovingFrom] = useState("");
   const [movingTo, setMovingTo] = useState("");
+  const [fState, setFState] = useState("");
+  const [fStateLgas, setFStateLgas] = useState([]);
+  const [fLga, setFLga] = useState("");
+  const [tState, setTState] = useState("");
+  const [tStateLgas, setTStateLgas] = useState([]);
+  const [tLga, setTLga] = useState("");
   const [apptFromType, setApptFromType] = useState("");
   const [apptToType, setApptToType] = useState("");
   const [service, setService] = useState("");
@@ -47,6 +54,24 @@ export default function RequestAQuote() {
     router.push("/");
   };
 
+  const addressFromStateChangeHandler = (e) => {
+    setFState(e.target.value);
+    for (let state of allState) {
+      if (state.state === e.target.value) {
+        setFStateLgas(state.lgas);
+      }
+    }
+  };
+
+  const addressToStateChangeHandler = (e) => {
+    setTState(e.target.value);
+    for (let state of allState) {
+      if (state.state === e.target.value) {
+        setTStateLgas(state.lgas);
+      }
+    }
+  };
+
   const submitHandler = async (e) => {
     try {
       e.preventDefault();
@@ -66,8 +91,8 @@ export default function RequestAQuote() {
         phone,
         apptFromType,
         apptToType,
-        movingFrom,
-        movingTo,
+        movingFrom: `${movingFrom}, ${fLga} L.G.A. ${fState}.`,
+        movingTo: `${movingTo}, ${tLga} L.G.A. ${tState}.`,
         service,
       });
       setSuccess(true);
@@ -107,6 +132,7 @@ export default function RequestAQuote() {
           value={name}
           onChange={inputChangeHandler(setName)}
           name="Name"
+          readOnly={status === "authenticated"}
         />
       </Container>
 
@@ -118,6 +144,7 @@ export default function RequestAQuote() {
           htmlFor={phone}
           onChange={inputChangeHandler(setPhone)}
           name="Phone number"
+          readOnly={status === "authenticated"}
         />
       </Container>
 
@@ -128,6 +155,7 @@ export default function RequestAQuote() {
           value={email}
           onChange={inputChangeHandler(setEmail)}
           name="Email"
+          readOnly={status === "authenticated"}
         />
       </Container>
 
@@ -141,6 +169,35 @@ export default function RequestAQuote() {
         />
       </Container>
 
+      <Container width="100%" margin="0 0 1rem 0">
+        <Container width="50%" flex="column" margin="0 0.2rem 0 0">
+          <label>Current State *</label>
+          <select
+            name="Pickup State"
+            value={fState}
+            onChange={addressFromStateChangeHandler}
+          >
+            <option></option>
+            {allState.map((a, i) => (
+              <option key={`${i}ps`}>{a.state}</option>
+            ))}
+          </select>
+        </Container>
+        <Container width="50%" flex="column">
+          <label>Current LGA *</label>
+          <select
+            name="Pickup L.G.A"
+            value={fLga}
+            onChange={inputChangeHandler(setFLga)}
+          >
+            <option></option>
+            {fStateLgas.map((lga, i) => (
+              <option key={`${i}pl`}>{lga}</option>
+            ))}
+          </select>
+        </Container>
+      </Container>
+
       <Container width="100%" flex="column" margin="0 0 1rem 0">
         <label>New Address *</label>
         <input
@@ -149,6 +206,35 @@ export default function RequestAQuote() {
           onChange={inputChangeHandler(setMovingFrom)}
           name="Moving To address"
         />
+      </Container>
+
+      <Container width="100%" margin="0 0 1rem 0">
+        <Container width="50%" flex="column" margin="0 0.2rem 0 0">
+          <label>New State *</label>
+          <select
+            name="Delivery State"
+            value={tState}
+            onChange={addressToStateChangeHandler}
+          >
+            <option></option>
+            {allState.map((a, i) => (
+              <option key={`${i}ds`}>{a.state}</option>
+            ))}
+          </select>
+        </Container>
+        <Container width="50%" flex="column">
+          <label>New LGA *</label>
+          <select
+            name="Delivery L.G.A"
+            value={tLga}
+            onChange={inputChangeHandler(setTLga)}
+          >
+            <option></option>
+            {tStateLgas.map((lga, i) => (
+              <option key={`${i}dl`}>{lga}</option>
+            ))}
+          </select>
+        </Container>
       </Container>
 
       <Container width="100%" flex="column" margin="0 0 1rem 0">

@@ -8,6 +8,8 @@ const quoteSchema = new mongoose.Schema(
       min: [5, "Name is too short"],
     },
 
+    user: mongoose.Schema.ObjectId,
+
     email: {
       type: String,
       required: [true, "Email is required"],
@@ -42,6 +44,12 @@ const quoteSchema = new mongoose.Schema(
       type: String,
       required: [true, "What do you want us to assist you with?"],
     },
+
+    amount: String,
+
+    status: String,
+
+    preferedTime: String,
   },
   { timestamps: true }
 );

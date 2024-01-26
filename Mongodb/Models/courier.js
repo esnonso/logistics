@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const courierSchema = new mongoose.Schema(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, required: true },
-
     receipientName: {
       type: String,
       required: [true, "Name is required"],
       min: [5, "Name is too short"],
     },
+
+    user: mongoose.Schema.ObjectId,
 
     receipientPhone: {
       type: String,
@@ -44,6 +44,8 @@ const courierSchema = new mongoose.Schema(
     deliveryStatus: { type: String, default: "With user" },
 
     transactionRef: { type: String },
+
+    preferredTime: String,
   },
   { timestamps: true }
 );

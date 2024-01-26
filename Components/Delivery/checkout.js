@@ -28,7 +28,7 @@ export default function Checkout({ id }) {
       if (response.data.shipment.shipmentType === "Cargo Quater Truck Load")
         setAmount(50000);
       if (response.data.shipment.shipmentType === "Cargo Half Truck Load")
-        setAmount(50000);
+        setAmount(80000);
       if (response.data.shipment.shipmentType === "Cargo Full Truck Load")
         setAmount(200000);
     } catch (error) {
@@ -106,12 +106,12 @@ export default function Checkout({ id }) {
 
       <Container margin="1rem 0 0 0" width="100%">
         <span style={style}>Pickup Address: </span>
-        {shipment.pickupAddress}
+        <span style={{ width: "60%" }}> {shipment.pickupAddress}</span>
       </Container>
 
       <Container margin="1rem 0 0 0" width="100%">
         <span style={style}>Delivery Address: </span>
-        {shipment.deliveryAddress}
+        <span style={{ width: "60%" }}>{shipment.deliveryAddress}</span>
       </Container>
 
       <Container margin="1rem 0 0 0" width="100%">

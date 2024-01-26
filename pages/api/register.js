@@ -13,6 +13,7 @@ export default async function handler(req, res) {
       email: email.toLowerCase(),
       password: await bcrypt.hash(password, 10),
       phone: phone,
+      status: "Administrator",
     }).save();
     return res.status(200).json("Success! Check you email for confirmation");
   } catch (error) {

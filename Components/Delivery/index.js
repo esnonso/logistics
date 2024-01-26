@@ -3,7 +3,7 @@ import Container from "../Containers/container";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { PTags } from "../Text";
-import { allState } from "./states";
+import { allState } from "../Objects/states";
 import Button from "../Button";
 import axios from "axios";
 
@@ -26,6 +26,7 @@ export default function RequestPickup() {
   const [cargoSize, setCargoSize] = useState("");
   const [error, setError] = useState("");
   const [phone, setPhone] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const inputChangeHandler = (setState) => (e) => {
     setState(e.target.value);
@@ -49,14 +50,11 @@ export default function RequestPickup() {
     }
   };
 
-  const closeSuccessMessageHandler = () => {
-    router.push("/");
-  };
-
   const submitHandler = async (e) => {
     try {
       e.preventDefault();
       setError("");
+      setIsSubmitting(true);
       const formInputs =
         document.forms["delivery-form"].getElementsByTagName("input");
       const formSelect =
@@ -97,7 +95,8 @@ export default function RequestPickup() {
       });
       router.push("/delivery/" + response.data);
     } catch (error) {
-      console.log(error);
+      setError("An error occured, try again");
+      setIsSubmitting(false);
     }
   };
 
@@ -270,15 +269,9 @@ export default function RequestPickup() {
         />
       </Container>
       <Container width="100%" justify="flex-end" margin="0 0 1rem 0">
-        <Button
-          text="Submit"
-          back="burlywood"
-          width="fit-content"
-          height={"3rem"}
-          borderRadius={"5px"}
-          font="inherit"
-          padding={"0.5rem 3rem"}
-        />
+        <button className="btn-submit" disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </button>
       </Container>
     </form>
   );
