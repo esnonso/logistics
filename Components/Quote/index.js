@@ -82,6 +82,7 @@ export default function RequestAQuote() {
       for (let input of formInputs) {
         if (input.value === "") {
           setError(`${input.name} cannot be blank!`);
+          setIsSubmitting(false);
           return;
         }
       }

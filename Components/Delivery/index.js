@@ -67,6 +67,7 @@ export default function RequestPickup() {
           input.name !== "Value of Shipment"
         ) {
           setError(`${input.name} cannot be blank!`);
+          setIsSubmitting(false);
           return;
         }
       }
@@ -74,12 +75,14 @@ export default function RequestPickup() {
       for (let input of formSelect) {
         if (input.value === "" && input.name !== "Cargo Type") {
           setError(`${input.name} cannot be blank!`);
+          setIsSubmitting(false);
           return;
         }
       }
 
       if (type === "Cargo" && cargoSize === "") {
         setError("Cargo size cannot be blank");
+        setIsSubmitting(false);
         return;
       }
 
