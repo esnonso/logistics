@@ -17,7 +17,7 @@ export default function QuoteForm() {
         ></script>
         <meta name="google-adsense-account" content="ca-pub-5633953924102583" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
       <RequestAQuote />
     </>
