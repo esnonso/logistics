@@ -18,7 +18,7 @@ export default function Homepage() {
             6 Tiamiyu Street, Fadeyi. Lagos
           </PTags>
 
-          <Link href="#our-services" className={classes["home-link"]}>
+          <Link href="/quote/new" className={classes["home-link"]}>
             Request a quote
           </Link>
         </Container>

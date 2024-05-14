@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       phone: phone,
       status: "Administrator",
     }).save();
-    return res.status(200).json("Success! Check you email for confirmation");
+    return res.status(200).json("Success! Proceed to login");
   } catch (error) {
     res.status(500).json(error.message);
   }
